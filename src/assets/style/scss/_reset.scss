@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    background-color: #fcfcfc;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+#root {
+    margin: 0 auto;
+    padding: 0 auto;
+    text-align: center;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+}
+a {
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+$background-gradient-sec2: radial-gradient(48.79% 44.02% at 50.07% 50%, #9697B2 0%, #201D28 100%);
+
+section {
+    background: radial-gradient(29.21% 29.21% at 69.16% 46.42%, #999FB5 0%, #4B4350 65.03%, #2B2833 100%); /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+    min-height: 100vh;   
+    padding: 50px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .explore{
+        display: flex;
+        justify-content: center;
+        color: #D2AE78;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.content {
+    span {
+        text-align: end;
+        margin-top: 10px;
+        font-size: 25px;
+        margin-right: 35px;
+        font-family: "Licorice", cursive;
+        color: #c9ac8c;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 45px;
+            height: 1px;
+            background-color: #c9ac8c;
+            bottom: 12px;
+            right: -60px;
+        }
+    }
+}
+
+h1{
+    color: #fff;
+    font-size: 50px;
+    padding-left: 30px;
+    text-align: left;
+    position: relative;
+    max-width: 500px;
+    margin-bottom: 10px;
+
+    &:before{
+        content: "The";
+        position: absolute;
+        font-size: 25px;
+        top: 32px;
+        left: -10px;
+        font-family: 'Licorice', cursive;
+        font-weight: 300;
+        color: #C9AC8C;
+
+    }
+    &:after{
+        content: "";
+        position: absolute;
+        width: 35px;
+        height: 1px;
+        background-color: #c9ac8c;
+        top: 42px;
+        left: -60px;
+    }
+}
+
+.home-contact {
+    .contact {
+        background: $background-gradient-sec2;
+        padding-top: 18rem;
+
+        .container-5 {
+            margin: 8rem auto 10rem;
+            // &::before,
+            // &::after {
+            //     background-image: conic-gradient(
+            //         from var(--a) at 50% 50% in oklch longer,
+            //         oklch(0.32 0.12 263.58) 0%,
+            //         oklch(0.43 0.12 254.43) 100%
+            //     );
+            // }   
+        }
+    }
+}
+  
+  

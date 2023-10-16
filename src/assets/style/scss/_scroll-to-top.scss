@@ -1,0 +1,27 @@
+.scroll {
+  position: fixed;
+  z-index: 3;
+  display: none;
+  bottom: 10px;
+  right: 2%;
+  width: 50px;
+  height: 50px;
+  line-height: 75px;
+  border-radius: 5px;
+  font-size: 17px;
+  color: #fff;
+  background: #C9AC8C;
+  padding:20px;
+  text-align:center;
+  vertical-align: middle;
+  box-shadow: 0px 0px 3px #000;
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+  }
+}
+  

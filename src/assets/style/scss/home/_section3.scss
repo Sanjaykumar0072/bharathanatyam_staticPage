@@ -1,0 +1,132 @@
+$background-gradient-sec2: radial-gradient(48.79% 44.02% at 50.07% 50%, #9697B2 0%, #201D28 100%);
+
+
+.classes {
+    // background: radial-gradient(18% 35% at 50% 60.42%, #999FB5 15%, #4B4350 70.03%, #2B2833 100%);
+    background: $background-gradient-sec2;
+}
+.container-2{
+    .align{
+        text-align: center;
+        color: #FFFFFF;
+        position: relative;
+        h1 {
+            margin: 0 auto 10px;
+            max-width: 400px;
+        }
+        h3{
+            font-weight: 300;
+            font-size: 30px;
+            margin-left: 33px;
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        &.video-align{
+            color: #000;
+            h3{
+                font-size: 28px;
+            }
+        }
+    }
+    .align {
+        h1 {
+            &::before{
+                top: 15px;
+                &.video-align h1::before{
+                    top: 30px;
+                    left: 34%;
+                }
+            }
+            &::after{
+                top: 25px;
+                &.video-align h1::after{
+                    top: 40px;
+                    left: 29%;
+                }
+            }
+        }
+        h3 {
+            position: relative;
+            &::before{
+                content: "Adult Classes";
+                position: absolute;
+                font-size: 18px;
+                bottom: -35px;
+                right: 25%;
+                font-family: 'Licorice', cursive;
+                font-weight: 300;
+                color: #C9AC8C;
+            }
+            &::after{
+                content: "";
+                position: absolute;
+                width: 45px;
+                height: 1px;
+                background-color: #c9ac8c;
+                bottom: -25px;
+                right: 12%;
+            }
+        }
+    }
+    .img-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+        margin-top: 70px;
+        min-height: 50vh;
+        img{
+            max-width: 400px;
+        }
+        .tab-buttons {
+            margin-bottom: 80px;
+            button {
+                color: #C9AC8C;
+                cursor: pointer;
+                font-size: 30px;
+                font-weight: 600;
+                padding: 10px 20px;
+                background: transparent;
+                margin: 0 30px;
+                border: none;
+
+                &.active {
+                    border: 3px solid #fff;
+                }
+                 
+            }
+        }
+        .tab-content {
+            min-height: 45vh;
+            & > div {
+                position: relative;
+                width: fit-content;
+                margin: 0 auto;
+                a {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: rgba(0, 0, 0, 85%);
+                    border-radius: 10px;
+                    text-decoration: none;
+                    color: white;
+                    opacity: 0;
+                    visibility: hidden;
+                    -webkit-transition: visibility 0.2s, opacity 0.2s linear;
+                    transition: visibility 0.2s, opacity 0.2s linear;
+                  }
+                  &:hover {
+                    a {
+                      padding: 8px 15px;
+                      visibility: visible;
+                      opacity: 1;
+                      max-width: 80%;
+                    }
+                }
+            }
+        }
+    }
+    
+}

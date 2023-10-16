@@ -1,0 +1,61 @@
+.container-3 {
+    h1 {
+        color: #000;
+        // padding-left: 150px;
+        max-width: 470px !important;
+        &:before {
+            top: 15px !important;
+            left: -10px;
+        }
+        &:after {
+            top: 28px !important;
+            left: -50px;
+        }
+    }
+    .video-content{
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin-top: 70px;
+        margin-bottom: 50px;
+
+        .video-box{
+            iframe{
+                width: 400px;
+                height: 270px;
+            }
+        }
+    }
+    .explore {
+        margin-bottom: 15rem;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.video-wrap{
+    background-image: radial-gradient(#9697B2 , #201D28 );
+    .videos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: -150px;
+        left: 0;
+
+        img{
+            max-width: 240px;
+        }
+    }
+}
+.react-multi-carousel-list.carousel-container {
+    background-image: radial-gradient(#9697B2 , #201D28 );
+    ul {
+        align-items: center;
+        img {
+            max-width: 250px;
+        }
+    }
+}

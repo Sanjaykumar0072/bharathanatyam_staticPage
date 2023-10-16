@@ -1,0 +1,162 @@
+$color_1: #fff;
+$background-color_1: #ffffff;
+$background-color_2: #2B2833;
+
+@-webkit-keyframes run1 {
+	0% {
+		-webkit-transform: translateX(0%);
+		transform: translateX(0%);
+	}
+	100% {
+		-webkit-transform: translateX(var(--fs-width-1));
+		transform: translateX(var(--fs-width-1));
+	}
+}
+@keyframes run1 {
+	0% {
+		-webkit-transform: translateX(0%);
+		transform: translateX(0%);
+	}
+	100% {
+		-webkit-transform: translateX(var(--fs-width-1));
+		transform: translateX(var(--fs-width-1));
+	}
+}
+@-webkit-keyframes run2 {
+	100% {
+		-webkit-transform: translateX(0%);
+		transform: translateX(0%);
+	}
+	0% {
+		-webkit-transform: translateX(var(--fs-width-2));
+		transform: translateX(var(--fs-width-2));
+	}
+}
+@keyframes run2 {
+	100% {
+		-webkit-transform: translateX(0%);
+		transform: translateX(0%);
+	}
+	0% {
+		-webkit-transform: translateX(var(--fs-width-2));
+		transform: translateX(var(--fs-width-2));
+	}
+}
+.freeslide {
+	position: relative;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	height: auto !important;
+	// background: #fcfcfc;
+}
+.fs-outer {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transition: -webkit-transform 30ms linear;
+	transition: -webkit-transform 30ms linear;
+	transition: transform 30ms linear;
+	transition: transform 30ms linear, -webkit-transform 30ms linear;
+}
+.fs1 {
+	.fs-outer {
+		&:hover {
+			-webkit-animation-play-state: paused;
+			animation-play-state: paused;
+		}
+		-webkit-animation: run1 linear infinite;
+		animation: run1 linear infinite;
+	}
+}
+.fs2 {
+	.fs-outer {
+		&:hover {
+			-webkit-animation-play-state: paused;
+			animation-play-state: paused;
+		}
+		-webkit-animation: run2 linear infinite;
+		animation: run2 linear infinite;
+	}
+}
+.fs-container {
+	position: absolute;
+	z-index: 9;
+	// background-color: $background-color_2;
+	text-align: center;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+.fs-inner {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	cursor: -webkit-grab;
+	cursor: grab;
+	position: absolute;
+	top: 15rem;
+	z-index: 10;
+	color: $color_1;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	ul {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		li {
+			width: 250px;
+			// margin: 10px 10px 5px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			// background-color: $background-color_2;
+			border-radius: 15px;
+			padding: 0px;
+			a {
+				&:focus-visible {
+					outline: 0;
+					outline: 0;
+				}
+			}
+			img {
+				&:hover {
+					outline: 0;
+					outline: 0;
+				}
+				width: 100%;
+				max-width: 250px;
+			}
+			div {
+				cursor: -webkit-grab;
+				cursor: grab;
+			}
+		}
+	}
+}
+.fs-inner.fs-grabbing {
+	cursor: -webkit-grabbing;
+	cursor: grabbing;
+	ul {
+		li {
+			div {
+				cursor: -webkit-grabbing;
+				cursor: grabbing;
+			}
+		}
+	}
+}
+.fs-inner.fs-moving {
+	ul {
+		li {
+			div {
+				pointer-events: none;
+			}
+		}
+	}
+}
+.fs-dup {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}

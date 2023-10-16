@@ -1,0 +1,53 @@
+.container-1{
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .content {
+        margin-bottom: 50px;
+        h1 {
+            color: #000000;
+
+            &::before {
+                top: 15px;
+            }
+            &::after {
+                top: 32px;
+            }
+        }
+        span {
+            left: 40px;
+        }
+    }
+
+    .abt-img{
+        flex: 1 1 0;
+        img{
+            max-width: 550px;
+            // height: 500px;
+        }
+    }
+    .abt-content{
+        margin: 0 70px;
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        p{
+            margin: 20px 0;
+            color: #969696;
+            font-size: 14px;
+            font-weight: 400;
+            text-align: left;
+            max-width: 20rem;
+        }
+        h2{
+            text-align: center;
+        }
+    }
+}
+
+.about, .gallery{
+    background-image: url(/public/images/about-bg.png);
+}
