@@ -29,33 +29,35 @@ class ContactForm extends Component {
 
     doSubmit = (e) => {
         e.preventDefault(); // Prevent the form from submitting by default
-    
+
         let userCaptcha = document.getElementById('user_captcha_input').value;
-    
+
         if (validateCaptcha(userCaptcha)) {
             this.handleSubmit();
-            successToaster();
         } else {
             notifyToaster();
-            // alert('Captcha Does Not Match');
         }
     };
-    
+
 
     handleSubmit = async (e) => {
-        e.preventDefault();
         const serviceId = import.meta.env.VITE_SERVICEID;
         const templateId = import.meta.env.VITE_TEMPLATEID;
 
         try {
             await emailjs.send(serviceId, templateId, {
-                recipent: this.inputRefs[0].current.value,
-                email: this.inputRefs[1].current.value,
-                number: this.inputRefs[2].current.value,
-                message: this.inputRefs[3].current.value
+                from_name: this.inputRefs[0].current.value,
+                from_email: this.inputRefs[1].current.value,
+                from_number: this.inputRefs[2].current.value,
+                from_message: this.inputRefs[3].current.value
             });
 
-            alert("Form Submitted");
+            successToaster();
+            // Clear the input fields
+            this.inputRefs[0].current.value = '';
+            this.inputRefs[1].current.value = '';
+            this.inputRefs[2].current.value = '';
+            this.inputRefs[3].current.value = '';
         } catch (error) {
             console.log(error);
         } finally {
@@ -72,8 +74,8 @@ class ContactForm extends Component {
                     <span>CONTACTUS</span>
                     <h1>Let’s Nritya Together!</h1>
                     <p>Even if you are a skillful and effective employer, lacking trust in your personnel or experiencing the opposite can have significant consequences.
-                    <br/><br/>
-                    Dance of Communication Your Expressions in Motion! 🌟 We'll Choreograph a Swift Response!
+                        <br /><br />
+                        Dance of Communication Your Expressions in Motion! 🌟 We'll Choreograph a Swift Response!
                     </p>
                     <div className="container-5">
                         <div className="contact-form">
@@ -81,15 +83,15 @@ class ContactForm extends Component {
                             <form>
                                 <div>
                                     <label htmlFor="name">Enter Your Name</label>
-                                    <input ref={this.inputRefs[0]} type="text" placeholder="Enter your Sweet name" name="name" size="30"/>
+                                    <input ref={this.inputRefs[0]} type="text" placeholder="Enter your Sweet name" name="name" size="30" />
                                 </div>
                                 <div>
                                     <label htmlFor="email">Enter Your Email</label>
-                                    <input ref={this.inputRefs[1]} type="email" placeholder="Email" name="email" size="30"/>
+                                    <input ref={this.inputRefs[1]} type="email" placeholder="Email" name="email" size="30" />
                                 </div>
                                 <div>
                                     <label htmlFor="number">Enter Your Number</label>
-                                    <input ref={this.inputRefs[2]} type="number" placeholder="Phone number" name="number"/>
+                                    <input ref={this.inputRefs[2]} type="number" placeholder="Phone number" name="number" />
                                 </div>
                                 <div>
                                     <label htmlFor="message">Enter Your Message</label>
@@ -99,7 +101,7 @@ class ContactForm extends Component {
                                     <div className="col mt-3"><LoadCanvasTemplate /></div>
                                     <div className="col mt-3">
                                         <div><input placeholder="Enter Captcha" id="user_captcha_input" name="user_captcha_input" type="text" size="30" /></div>
-                                    </div>                
+                                    </div>
                                 </div>
                                 <button className="btn" disabled={loading} onClick={(e) => this.doSubmit(e)}>Submit</button>
                                 <Toaster
@@ -109,10 +111,10 @@ class ContactForm extends Component {
                                         className: '',
                                         duration: 3000,
                                         style: {
-                                          background: '#8c8c8c',
-                                          color: '#000',
+                                            background: '#8c8c8c',
+                                            color: '#000',
                                         }
-                                      }}
+                                    }}
                                 />
                             </form>
                         </div>

@@ -7,7 +7,7 @@ export default function Section1() {
                 <div className="container">
                     <div className="content">
                         <h1>Adult Open Division Classes</h1>
-                        <span>With Your friend name</span>
+                        {/* <span>With Your friend name</span> */}
                     </div>
                 </div>
                 {/* <ul className="slideshow">

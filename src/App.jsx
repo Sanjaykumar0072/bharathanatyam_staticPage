@@ -6,7 +6,6 @@ import Playlist from './components/playlist';
 import ContactUs from './components/contact';
 import About from './components/about';
 import Gallery from './components/gallery';
-import Particle from './components/sub-components/particle';
 
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
           <Route path='/gallery' element={<Gallery />}/>
           <Route path='/playlist' element={<Playlist />}/>
           <Route path='/contact' element={<ContactUs />}/>
-          <Route path='/particle' element={<Particle />}/>
         </Routes>
       </Router>
     </>

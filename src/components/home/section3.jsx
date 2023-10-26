@@ -1,11 +1,9 @@
 import React from 'react';
 import { Tabs, Tab } from '../sub-components/react-tab';
-import Particle from '../sub-components/particle';
 
 export default function Section3() {
     return (
         <>
-            {/* <Particle /> */}
             <section className="classes" id="classes">
                 <div className="container-2">
                     <div className="align">
@@ -14,7 +12,7 @@ export default function Section3() {
                     </div>
                     <div className="img-content">
                         <Tabs>
-                            <Tab label="Class">
+                            <Tab label="Awards">
                                 <div>
                                     <a href="/gallery/#class">Explore More</a>
                                     <img src="/images/slider_b_4.png" />

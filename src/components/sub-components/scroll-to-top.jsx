@@ -33,7 +33,7 @@ const ScrollToTop = () => {
           ref={scrollTopRef}
           onClick={scrollToTop}
           className="scroll"
-        ><img src="/public/svg/up-arrow-icon.svg" alt="" /></span>
+        ><img src="/public/svg/up-arrow.svg" alt="" /></span>
       </>
     )    
 }

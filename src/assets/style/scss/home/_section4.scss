@@ -1,16 +1,7 @@
 .container-3 {
     h1 {
         color: #000;
-        // padding-left: 150px;
-        max-width: 470px !important;
-        &:before {
-            top: 15px !important;
-            left: -10px;
-        }
-        &:after {
-            top: 28px !important;
-            left: -50px;
-        }
+        max-width: fit-content;
     }
     .video-content{
         display: flex;

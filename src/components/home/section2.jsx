@@ -11,21 +11,12 @@ export default function Section2() {
                     <div className="abt-content">
                         <div className="content">
                             <h1>Dance Studio</h1>
-                            <span>Adult Classes</span>
-                        </div>    
-                        <p>You may be a skillful, effective employer 
-                            but if you don’t trust your personnel and 
-                            the opposite, then the chances of improving 
-                            and expanding the business you deal with, 
-                            are extremely limited.</p>
-                        <p>It’s not critical for the employees to like the
-                            boss, but they have to trust him or her. If not,
-                            he won’t be able to lead them and the workers
-                            will have little motivation at work. Truth and 
-                            trust are connected together. You could be
-                            honest for years but one lie can destroy the 
-                            trust you have built all this time and there is 
-                            no doubt that regaining that trust is very difficult.</p>
+                            {/* <span>Adult Classes</span> */}
+                        </div>
+                        <p>Darshiini, the young and promising Bharatanatyam dancer from Chennai, stands as a testament to the fusion of talent, tradition, and innovation in the world of classical Indian dance. With her exceptional command over the intricate techniques of Bharatanatyam and her mature abhinaya, she brings to life stories and emotions that captivate audiences, leaving a lasting impression. Her journey as a performing artist has been marked by participation in prestigious dance festivals organized by renowned sabhas, not only in Chennai but also beyond its borders.
+                        <br />
+                        <br />
+                        As a performing artist, Darshiini embraces a range of responsibilities, which not only refine her own skills but also contribute to the preservation and propagation of this ancient art form. She meticulously prepares for her performances, diligently rehearsing under the tutelage of her guru, Summa Mani. Her commitment extends beyond solo performances, as she actively participates in group acts, ensuring that she consistently elevates her technical standards.</p>
 
                         <a href="/about" className="explore">Explore More</a>
                     </div>
