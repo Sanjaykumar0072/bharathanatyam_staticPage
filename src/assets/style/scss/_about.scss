@@ -1,6 +1,6 @@
 .aboutPage {
   background: linear-gradient(130deg, #201d28 50%, #9697b2 80%);
-  padding: 50px 20px;
+  padding: 50px;
 
   p {
     max-width: 38%;
@@ -8,13 +8,17 @@
   }
   .container-5{
     min-height: 100% !important;
-    margin: 5rem auto !important;
+    margin: 2rem auto !important;
     .about-content {
       .aboutImage {
-        background: url(/images/about-aside.png) no-repeat center;
+        background: url(/public/images/about-aside1.png) no-repeat center;
+        background-size: contain;
         border-radius: 0;
         min-height: 30rem;
         
+      }
+      .aboutImage1 {
+        background-image: url(/public/images/about-aside2.png);
       }
       p {
         color: #fff;

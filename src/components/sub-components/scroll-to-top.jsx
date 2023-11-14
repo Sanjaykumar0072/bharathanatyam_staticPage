@@ -5,7 +5,7 @@ const ScrollToTop = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 1000) {
+      if (window.scrollY > 500) {
         scrollTopRef.current.style.display = 'inline-block';
       } else {
         scrollTopRef.current.style.display = 'none';

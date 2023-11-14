@@ -282,6 +282,7 @@
     footer {
         .container-6 {
             gap: 20px;
+            align-items: end;
         }
     }
 
@@ -313,6 +314,30 @@
                 }
             }
         }
+    }
+
+    // Gallery Page 
+    .galleryPages {
+        h1 {
+            font-weight: 400;
+        }
+        .gallery-flex {
+            gap: 3rem;
+
+            & > div {
+                li {
+                    font-size: 18px;
+                    padding: 0 0 15px;
+                }
+            }
+        }
+        // .event-flex {
+        //     & > div {
+        //         max-width: 300px;
+        //         margin-left: 40px;
+        //     }
+        // }
+
     }
 }
 
@@ -352,13 +377,13 @@
     }
 
     .container-1 {
+        .content {
+            margin-bottom: 30px;
+        }
         .abt-img {
             img {
                 max-width: 400px;
             }
-        }
-        .abt-content {
-            margin-left: 0;
         }
     }
     //section3
@@ -370,7 +395,7 @@
                 margin-bottom: 30px;
                  button {
                     margin: 0 10px;
-                    font-size: 24px;
+                    font-size: 20px;
                     padding: 10px;
                  }
             }
@@ -432,20 +457,6 @@
         top: 25rem;
     }
 
-    footer {
-        padding: 3rem 20px 1rem;
-        .container-6 {
-            flex-direction: column;
-        }
-        .copyright {
-            p {
-                margin: 5px 0 !important;
-                max-width: 200px;
-                text-align: center;
-            }
-        }
-    }
-
     // ABOUT PAGE
     .contact, .aboutPage {
         h1 {
@@ -480,6 +491,54 @@
                 p {
                     margin: 10px 0;
                 }
+            }
+        }
+    }
+
+    // Gallery Page 
+    .galleryPages {
+        span {
+            font-size: 3rem;
+
+            &::before, &::after {
+                bottom: 30px;
+            }
+        }
+        .gallery-flex {
+            flex-direction: column;
+            align-items: center;
+
+            & > div {
+                max-width: 250px;
+
+                li {
+                    font-size: 18px;
+                }
+            }
+        }
+        .event-flex {
+            & > div {
+                max-width: 300px;
+                margin-left: 40px;
+            }
+        }
+        .gallery-images {
+            
+        }
+
+    }
+
+    footer {
+        padding: 3rem 20px 1rem;
+        .container-6 {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        .copyright {
+            p {
+                margin: 5px 0 !important;
+                max-width: calc(100% - 6rem);
+                text-align: center;
             }
         }
     }

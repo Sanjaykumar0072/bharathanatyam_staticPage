@@ -3,7 +3,7 @@ import emailjs from "@emailjs/browser";
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import toast, { Toaster } from 'react-hot-toast';
 
-const notifyToaster = () => toast('Captcha Does Not Match❌');
+const failedToaster = () => toast('Some Field Is Empty (or) Captcha Does Not Match❌');
 const successToaster = () => toast('Succes✅, We Will Get Back To You Soon🔥');
 
 class ContactForm extends Component {
@@ -32,19 +32,26 @@ class ContactForm extends Component {
 
         let userCaptcha = document.getElementById('user_captcha_input').value;
 
-        if (validateCaptcha(userCaptcha)) {
+        if (validateCaptcha(userCaptcha) && this.inputRefs[0].current.value != '' && this.inputRefs[1].current.value != '' && this.inputRefs[2].current.value != '') {
             this.handleSubmit();
         } else {
-            notifyToaster();
+            failedToaster();
         }
     };
 
 
     handleSubmit = async (e) => {
+        // Prevent form submission if it's triggered by an event
+        if (e) {
+            e.preventDefault();
+        }
+
         const serviceId = import.meta.env.VITE_SERVICEID;
         const templateId = import.meta.env.VITE_TEMPLATEID;
 
         try {
+            this.setState({ loading: true });
+
             await emailjs.send(serviceId, templateId, {
                 from_name: this.inputRefs[0].current.value,
                 from_email: this.inputRefs[1].current.value,
@@ -52,12 +59,13 @@ class ContactForm extends Component {
                 from_message: this.inputRefs[3].current.value
             });
 
-            successToaster();
             // Clear the input fields
-            this.inputRefs[0].current.value = '';
-            this.inputRefs[1].current.value = '';
-            this.inputRefs[2].current.value = '';
-            this.inputRefs[3].current.value = '';
+            this.inputRefs.forEach(ref => ref.current.value = '');
+
+            document.getElementById('user_captcha_input').value = '';
+
+            loadCaptchaEnginge(6);
+            successToaster();
         } catch (error) {
             console.log(error);
         } finally {
@@ -73,6 +81,7 @@ class ContactForm extends Component {
                 <div className="contact">
                     <span>CONTACTUS</span>
                     <h1>Let’s Nritya Together!</h1>
+                    <h3>"பரதநாட்டிய உலகில் ஒவ்வொரு நடனக் கலைஞரும் கதைசொல்லிகள்தான்."</h3>
                     <p>Even if you are a skillful and effective employer, lacking trust in your personnel or experiencing the opposite can have significant consequences.
                         <br /><br />
                         Dance of Communication Your Expressions in Motion! 🌟 We'll Choreograph a Swift Response!
@@ -83,15 +92,15 @@ class ContactForm extends Component {
                             <form>
                                 <div>
                                     <label htmlFor="name">Enter Your Name</label>
-                                    <input ref={this.inputRefs[0]} type="text" placeholder="Enter your Sweet name" name="name" size="30" />
+                                    <input ref={this.inputRefs[0]} type="text" placeholder="Enter your Sweet name" name="name" size="30" required />
                                 </div>
                                 <div>
                                     <label htmlFor="email">Enter Your Email</label>
-                                    <input ref={this.inputRefs[1]} type="email" placeholder="Email" name="email" size="30" />
+                                    <input ref={this.inputRefs[1]} type="email" placeholder="Email" name="email" size="30" required />
                                 </div>
                                 <div>
                                     <label htmlFor="number">Enter Your Number</label>
-                                    <input ref={this.inputRefs[2]} type="number" placeholder="Phone number" name="number" />
+                                    <input ref={this.inputRefs[2]} type="number" placeholder="Phone number" name="number" required />
                                 </div>
                                 <div>
                                     <label htmlFor="message">Enter Your Message</label>
@@ -103,7 +112,15 @@ class ContactForm extends Component {
                                         <div><input placeholder="Enter Captcha" id="user_captcha_input" name="user_captcha_input" type="text" size="30" /></div>
                                     </div>
                                 </div>
-                                <button className="btn" disabled={loading} onClick={(e) => this.doSubmit(e)}>Submit</button>
+                                <button
+                                className={`btn ${loading ? 'loading' : ''}`}
+                                disabled={loading}
+                                onClick={(e) => this.doSubmit(e)}
+                                style={{ backgroundColor: loading ? '#b06b10' : '#C9AC8C' }}
+                            >
+                                {loading ? 'Submitting...' : 'Submit'}
+                            </button>
+                            
                                 <Toaster
                                     position="top-center"
                                     toastOptions={{

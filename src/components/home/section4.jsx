@@ -39,7 +39,7 @@ export default function Section2() {
                     <a href="/playlist" className="explore">Explore More</a>
                 </div>
                 <InfinitySlider />
-            </section>
+                            </section>
         </>
     )
 }

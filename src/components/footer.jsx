@@ -6,7 +6,8 @@ export default function Footer() {
             <footer>
                 <div className="container-6">
                     <div className="logo">
-                        <h2>DharshiniVSDance</h2>
+                        <img src="/public/images/logo1.png" alt="" />
+                        <h2>Dharshini VS</h2>
                         <p>"Discover the art of Bharatanatyam, where tradition meets innovation in a symphony of rhythm and emotion."</p>
                     </div>
                     <div className="inner-cont">

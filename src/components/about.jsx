@@ -45,7 +45,7 @@ export default function About() {
                                 In summary, Darshiini's journey as a Bharatanatyam dancer represents the harmonious coexistence of time-honored traditions and contemporary innovation. Her commitment to preserving the essence of the art while pushing its boundaries has positioned her as a promising talent with the potential to inspire and shape the future of classical Indian dance. Her performances serve as a testament to the timeless beauty and relevance of Bharatanatyam in the modern world.
                             </p>
                         </div>
-                        <aside className='aboutImage'></aside>
+                        <aside className='aboutImage aboutImage1'></aside>
                     </div>
                 </div>
             </div>

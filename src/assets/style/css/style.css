@@ -24,14 +24,16 @@ body {
   overflow: hidden;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6, p, a, ul, li {
   margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  outline: none;
 }
 
 a {
   cursor: pointer;
-  outline: none;
-  text-decoration: none;
 }
 
 .space-between {
@@ -82,7 +84,6 @@ h1 {
   justify-content: center;
   align-items: center;
   font-size: 20px;
-  padding: 10px 0;
   position: static;
   top: 0;
   left: 0;
@@ -115,25 +116,23 @@ h1 {
 }
 
 .nav-logo {
-  color: #C9AC8C;
+  color: #c9ac8c;
   text-align: start;
-  margin-left: 20px;
+  margin-left: 3rem;
   cursor: pointer;
-  text-decoration: none;
-  font-size: 26px;
 }
-.nav-logo:hover {
-  color: #fcfcfc;
+.nav-logo img {
+  width: 100%;
+  max-width: 5rem;
 }
 
 .nav-menu {
   display: flex;
   list-style: none;
   text-align: center;
-  margin-right: 32px;
   margin: 0;
   padding: 0;
-  margin-right: 50px;
+  margin-right: -30px;
 }
 .nav-menu.active {
   left: 0px;
@@ -143,9 +142,8 @@ h1 {
 }
 
 .nav-links {
-  color: #8C8C8C;
+  color: #8c8c8c;
   text-decoration: none;
-  padding: 0 10px;
   height: 100%;
   border-bottom: 3px solid transparent;
   width: 100%;
@@ -157,7 +155,7 @@ h1 {
   margin: 0 auto;
 }
 .nav-links:hover {
-  color: #C9AC8C;
+  color: #c9ac8c;
 }
 
 .fa-code {
@@ -177,14 +175,14 @@ h1 {
   height: 2px;
   width: 0;
   margin: 0 auto;
-  background: #C9AC8C;
+  background: #c9ac8c;
   transition: width 0.7s ease, background-color 0.5s ease;
 }
 .nav-item .nav-links:hover:after {
   width: 100%;
 }
 .nav-item .nav-links.active {
-  color: #C9AC8C;
+  color: #c9ac8c;
 }
 .nav-item .nav-links.active::after {
   width: 100%;
@@ -202,12 +200,61 @@ h1 {
   color: #ffdd40;
 }
 
+.nav-item.gallery-dropdown {
+  position: relative;
+}
+.nav-item.gallery-dropdown::before, .nav-item.gallery-dropdown::after {
+  content: "";
+  position: absolute;
+  background-color: #8c8c8c;
+  width: 10px;
+  height: 1.5px;
+  top: 20px;
+  right: 10px;
+  transform: rotate(45deg);
+  border-radius: 40px;
+}
+.nav-item.gallery-dropdown::after {
+  top: 20px;
+  right: 3px;
+  transform: rotate(-45deg);
+}
+.nav-item.gallery-dropdown ul {
+  display: none;
+}
+.nav-item.gallery-dropdown:hover ul {
+  display: block;
+  background-color: #fff;
+  list-style: none;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+  left: -25px;
+  top: 45px;
+}
+.nav-item.gallery-dropdown:hover ul li {
+  color: #8c8c8c;
+  cursor: pointer;
+  padding: 5px 35px;
+}
+.nav-item.gallery-dropdown:hover ul li:last-child {
+  padding-bottom: 20px;
+}
+.nav-item.gallery-dropdown:hover ul li:hover {
+  color: #c9ac8c;
+}
+
+@media screen and (max-width: 1499px) {
+  .nav-menu {
+    margin-right: 30px;
+  }
+}
 @media screen and (max-width: 1023px) {
   .nav-menu {
     display: flex;
     flex-direction: column;
     width: 100%;
-    border-top: 1pxsolid #fff;
+    border-top: 1px solid #fff;
     position: absolute;
     top: 60px;
     z-index: 0;
@@ -216,7 +263,7 @@ h1 {
     transition: all 0.5s ease;
   }
   .nav-menu.active {
-    background: #2B2833 100%;
+    background: #2b2833 100%;
     left: 0px;
     opacity: 1;
     transition: all 0.5s ease;
@@ -227,13 +274,43 @@ h1 {
     color: #fff;
     border: none;
   }
+  .nav-item {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0 auto;
+  }
+  .nav-item a {
+    padding: 10px 0;
+  }
   .nav-item:hover:after {
     width: 0;
+  }
+  .nav-item.gallery-dropdown::before {
+    top: 46%;
+    right: 8%;
+  }
+  .nav-item.gallery-dropdown::after {
+    top: 46%;
+    right: 2%;
+    width: 10px;
+  }
+  .nav-item.gallery-dropdown ul {
+    left: -20% !important;
+    top: 60px !important;
+  }
+  .nav-item.gallery-dropdown ul li a {
+    padding: 0;
   }
   .nav-links {
     padding: 24px;
     width: 100%;
     display: table;
+  }
+  .nav-logo {
+    margin-top: 4px;
+  }
+  .nav-logo img {
+    width: 4rem;
   }
   .nav-icon {
     display: block;
@@ -251,9 +328,9 @@ h1 {
     height: 3px;
     position: absolute;
     z-index: 0;
-    background-color: #C9AC8C;
+    background-color: #c9ac8c;
     transition: all 0.5s ease;
-    right: 40px;
+    right: 60px;
   }
   .nav-icon span:first-child {
     top: -10px;
@@ -282,12 +359,12 @@ h1 {
 }
 @media screen and (max-width: 767px) {
   .nav-icon span:first-child, .nav-icon span:nth-child(2), .nav-icon span:nth-child(3) {
-    right: 20px;
+    right: 50px;
   }
 }
 .aboutPage {
   background: linear-gradient(130deg, #201d28 50%, #9697b2 80%);
-  padding: 50px 20px;
+  padding: 50px;
 }
 .aboutPage p {
   max-width: 38%;
@@ -295,12 +372,16 @@ h1 {
 }
 .aboutPage .container-5 {
   min-height: 100% !important;
-  margin: 5rem auto !important;
+  margin: 2rem auto !important;
 }
 .aboutPage .container-5 .about-content .aboutImage {
-  background: url(/images/about-aside.png) no-repeat center;
+  background: url(/public/images/about-aside1.png) no-repeat center;
+  background-size: contain;
   border-radius: 0;
   min-height: 30rem;
+}
+.aboutPage .container-5 .about-content .aboutImage1 {
+  background-image: url(/public/images/about-aside2.png);
 }
 .aboutPage .container-5 .about-content p {
   color: #fff;
@@ -315,7 +396,7 @@ h1 {
 }
 .playlistPage h1 {
   text-align: center;
-  font-weight: 900;
+  font-weight: 400;
   color: #fff;
   max-width: -moz-fit-content;
   max-width: fit-content;
@@ -360,14 +441,17 @@ h1 {
   color: #969696;
 }
 
+.playlist {
+  margin: 60px auto;
+}
 .playlist .Video-container {
   max-width: 1200px;
-  margin: 100px auto;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: 20px;
+  gap: 30px;
+  margin: 0 auto;
 }
 .playlist .Video-container .main-video-container {
   flex: 1 1 700px;
@@ -460,12 +544,12 @@ h1 {
 .contact,
 .aboutPage {
   background: radial-gradient(48.79% 44.02% at 50.07% 50%, #9697b2 0%, #201d28 100%);
-  padding: 50px 20px;
+  padding: 50px;
 }
 .contact h1,
 .aboutPage h1 {
   text-align: center;
-  font-weight: 900;
+  font-weight: 400;
   color: #fff;
   max-width: -moz-fit-content;
   max-width: fit-content;
@@ -478,6 +562,10 @@ h1 {
 .contact h1::after,
 .aboutPage h1::after {
   display: none;
+}
+.contact h3,
+.aboutPage h3 {
+  color: #969696;
 }
 .contact span,
 .aboutPage span {
@@ -534,7 +622,7 @@ h1 {
 }
 .contact .container-5 .contact-form aside,
 .aboutPage .container-5 .contact-form aside {
-  background: url(/images/contact_aside.png) no-repeat center;
+  background: url(/images/contact.jpg) no-repeat center;
   background-size: cover;
   border-radius: 10px;
 }
@@ -654,6 +742,55 @@ h1 {
     padding: 15px;
   }
 }
+.galleryPages h1 {
+  max-width: 800px;
+}
+.galleryPages h2 {
+  color: #c9ac8c;
+  padding-bottom: 20px;
+  font-size: 35px;
+  font-family: "Licorice", cursive;
+}
+.galleryPages span {
+  font-size: 5rem;
+}
+.galleryPages span::before, .galleryPages span::after {
+  bottom: 45px;
+}
+.galleryPages .gallery-flex {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4rem;
+  text-align: left;
+  margin-bottom: 25px;
+  max-width: 40rem;
+  margin: 5rem auto;
+}
+.galleryPages .gallery-flex h2 {
+  color: #c9ac8c;
+  padding-bottom: 20px;
+  margin-left: -20px;
+}
+.galleryPages .gallery-flex li {
+  padding: 10px 0;
+  font-size: 20px;
+  color: #fff;
+  list-style: disc;
+}
+.galleryPages .gallery-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 4fr));
+  justify-items: center;
+}
+.galleryPages .gallery-images img {
+  width: 100%;
+  height: 100%;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  padding: 10px;
+}
+
 .scroll {
   position: fixed;
   z-index: 3;
@@ -784,7 +921,7 @@ h1 {
 
 footer {
   background: radial-gradient(48.79% 44.02% at 50.07% 50%, #686878 0%, #201D28 100%);
-  padding: 4rem 50px 0.5rem;
+  padding: 0.5rem 50px;
   text-align: left;
   border-top: 1px solid #727272;
   color: #fff;
@@ -798,11 +935,21 @@ footer .container-6 {
 footer .container-6 > div {
   margin: 10px 0;
 }
+footer .container-6 .logo h2 {
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  margin-left: 3.5rem;
+  margin-top: -10px;
+}
+footer .container-6 .logo img {
+  width: 12rem;
+  margin-left: 2rem;
+}
 footer .container-6 .logo p {
   max-width: 280px;
 }
 footer .container-6 h2 {
-  font-weight: 900;
+  font-weight: 400;
 }
 footer .container-6 h4 {
   margin: 10px 0;
@@ -1262,6 +1409,7 @@ footer .copyright a {
   }
   footer .container-6 {
     gap: 20px;
+    align-items: end;
   }
   .contact h1, .aboutPage h1 {
     padding-left: 0;
@@ -1279,6 +1427,16 @@ footer .copyright a {
   }
   .contact .container-5 .about-content p, .aboutPage .container-5 .about-content p {
     margin: 10px 0;
+  }
+  .galleryPages h1 {
+    font-weight: 400;
+  }
+  .galleryPages .gallery-flex {
+    gap: 3rem;
+  }
+  .galleryPages .gallery-flex > div li {
+    font-size: 18px;
+    padding: 0 0 15px;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -1303,11 +1461,11 @@ footer .copyright a {
     padding: 0;
     font-size: 38px;
   }
+  .container-1 .content {
+    margin-bottom: 30px;
+  }
   .container-1 .abt-img img {
     max-width: 400px;
-  }
-  .container-1 .abt-content {
-    margin-left: 0;
   }
   .container-2 .img-content {
     margin-top: 40px;
@@ -1317,7 +1475,7 @@ footer .copyright a {
   }
   .container-2 .img-content .tab-buttons button {
     margin: 0 10px;
-    font-size: 24px;
+    font-size: 20px;
     padding: 10px;
   }
   .container-2 .align h3 {
@@ -1355,17 +1513,6 @@ footer .copyright a {
   .fs-inner {
     top: 25rem;
   }
-  footer {
-    padding: 3rem 20px 1rem;
-  }
-  footer .container-6 {
-    flex-direction: column;
-  }
-  footer .copyright p {
-    margin: 5px 0 !important;
-    max-width: 200px;
-    text-align: center;
-  }
   .contact h1, .aboutPage h1 {
     font-size: 28px;
     padding-left: 0;
@@ -1396,5 +1543,37 @@ footer .copyright a {
   }
   .contact .container-5 .about-content p, .aboutPage .container-5 .about-content p {
     margin: 10px 0;
+  }
+  .galleryPages span {
+    font-size: 3rem;
+  }
+  .galleryPages span::before, .galleryPages span::after {
+    bottom: 30px;
+  }
+  .galleryPages .gallery-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+  .galleryPages .gallery-flex > div {
+    max-width: 250px;
+  }
+  .galleryPages .gallery-flex > div li {
+    font-size: 18px;
+  }
+  .galleryPages .event-flex > div {
+    max-width: 300px;
+    margin-left: 40px;
+  }
+  footer {
+    padding: 3rem 20px 1rem;
+  }
+  footer .container-6 {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  footer .copyright p {
+    margin: 5px 0 !important;
+    max-width: calc(100% - 6rem);
+    text-align: center;
   }
 }/*# sourceMappingURL=style.css.map */

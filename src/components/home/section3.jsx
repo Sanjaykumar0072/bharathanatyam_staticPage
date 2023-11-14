@@ -14,20 +14,20 @@ export default function Section3() {
                         <Tabs>
                             <Tab label="Awards">
                                 <div>
-                                    <a href="/gallery/#class">Explore More</a>
-                                    <img src="/images/slider_b_4.png" />
+                                    <a href="/gallery-awards">Explore More</a>
+                                    <img src="/public/images/awards/11.jpg" />
                                 </div>
                             </Tab>
-                            <Tab label="Event">
+                            <Tab label="Events">
                                 <div>
-                                    <a href="/gallery/#event">Explore More</a>
-                                    <img src="/images/slider_b_6.png" />
+                                    <a href="/gallery-events">Explore More</a>
+                                    <img src="/public/images/events/ev-10.jpg" />
                                 </div>
                             </Tab>
                             <Tab label="Photoshoot">
                                 <div>
-                                    <a href="/gallery/#photoshoot">Explore More</a>
-                                    <img src="/images/slider_b_9.png" />
+                                    <a href="/gallery-photoshoot">Explore More</a>
+                                    <img src="/public/images/photoshoot/ps-16.jpg" />
                                 </div>
                             </Tab>
                         </Tabs>

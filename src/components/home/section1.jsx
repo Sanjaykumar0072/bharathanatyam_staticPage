@@ -6,18 +6,9 @@ export default function Section1() {
             <section className="home space-between" id="section1">
                 <div className="container">
                     <div className="content">
-                        <h1>Adult Open Division Classes</h1>
-                        {/* <span>With Your friend name</span> */}
+                        <h1>Dharshiini VS Dance</h1>
                     </div>
                 </div>
-                {/* <ul className="slideshow">
-                    <li><span></span></li>
-                    <li><span></span></li>
-                    <li><span></span></li>
-                    <li><span></span></li>
-                    <li><span></span></li>
-                    <li><span></span></li>
-                </ul> */}
                 <img src="/public/images/sec1image.png" alt="" />
             </section>
         </>

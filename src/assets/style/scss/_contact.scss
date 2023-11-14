@@ -1,13 +1,14 @@
 $background-gradient-sec2: radial-gradient(48.79% 44.02% at 50.07% 50%, #9697b2 0%, #201d28 100%);
+$secondry-color: #c9ac8c;
 
 .contact,
 .aboutPage {
   background: radial-gradient(48.79% 44.02% at 50.07% 50%, #9697b2 0%, #201d28 100%);
-  padding: 50px 20px;
+  padding: 50px;
 
   h1 {
     text-align: center;
-    font-weight: 900;
+    font-weight: 400;
     color: #fff;
     max-width: fit-content;
     margin: 20px auto;
@@ -18,13 +19,16 @@ $background-gradient-sec2: radial-gradient(48.79% 44.02% at 50.07% 50%, #9697b2 
       display: none;
     }
   }
+  h3 {
+    color: #969696;
+  }
   span {
     text-align: end;
     margin-top: 10px;
     font-size: 25px;
     margin-right: 35px;
     font-family: "Licorice", cursive;
-    color: #c9ac8c;
+    color: $secondry-color;
     position: relative;
 
     &::before {
@@ -32,7 +36,7 @@ $background-gradient-sec2: radial-gradient(48.79% 44.02% at 50.07% 50%, #9697b2 
       position: absolute;
       width: 45px;
       height: 1px;
-      background-color: #c9ac8c;
+      background-color: $secondry-color;
       bottom: 18px;
       right: -60px;
     }
@@ -41,7 +45,7 @@ $background-gradient-sec2: radial-gradient(48.79% 44.02% at 50.07% 50%, #9697b2 
       position: absolute;
       width: 45px;
       height: 1px;
-      background-color: #c9ac8c;
+      background-color: $secondry-color;
       bottom: 18px;
       left: -60px;
     }
@@ -69,7 +73,7 @@ $background-gradient-sec2: radial-gradient(48.79% 44.02% at 50.07% 50%, #9697b2 
       animation: blink 0.7s infinite alternate;
 
       aside {
-        background: url(/images/contact_aside.png) no-repeat center;
+        background: url(/images/contact.jpg) no-repeat center;
         background-size: cover;
         border-radius: 10px;
       }
@@ -119,7 +123,7 @@ $background-gradient-sec2: radial-gradient(48.79% 44.02% at 50.07% 50%, #9697b2 
         border-radius: 5px;
       }
       .btn {
-        background: #c9ac8c;
+        background: $secondry-color;
         color: #000;
         font-weight: 800;
         padding: 0.8rem;
@@ -137,7 +141,7 @@ $background-gradient-sec2: radial-gradient(48.79% 44.02% at 50.07% 50%, #9697b2 
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 #c9ac8c;
+    box-shadow: 0 0 0 0 $secondry-color;
   }
   100% {
     box-shadow: 0 0 0 10px transparent;
