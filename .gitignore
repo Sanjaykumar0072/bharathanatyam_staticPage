@@ -12,7 +12,7 @@ dist
 dist-ssr
 .firebase
 .firebaserc
-.zip
+dist.zip
 firebase.json
 *.local
 
