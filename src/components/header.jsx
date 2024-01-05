@@ -1,6 +1,5 @@
 import react, { Component, useState } from "react";
 import { NavLink } from 'react-router-dom';
-import $ from 'jquery';
 
 export default function Header() {
     const [click, setClick] = useState(false);
@@ -22,17 +21,15 @@ export default function Header() {
                         <NavLink
                             exact="true"
                             to="/"
-                            onClick={() => window.reload()}
                             className="nav-logo"
                         >
-                            <img src="/public/images/logo1.png" alt="" />
+                            <img src="/images/darshiiniVS_logo1.svg" alt="" />
                         </NavLink>
                         <ul className={click ? "nav-menu active" : "nav-menu"}>
                             <li className="nav-item">
                                 <NavLink
                                     exact="true"
                                     to="/"
-                                    onClick={() => window.reload()}
                                     className="nav-links"
                                 >
                                     Home
@@ -59,13 +56,14 @@ export default function Header() {
                             <li className="nav-item gallery-dropdown">
                                 <NavLink
                                     exact="true"
-                                    to="javascript:void(0)"
+                                    to="gallery"
                                     className="nav-links"
+                                    onClick={(e) => { e.preventDefault(); }}
                                 >
                                     Gallery
                                 </NavLink>
                                 <ul>
-                                    <li>
+                                    <li className="nav-item">
                                         <NavLink
                                             exact="true"
                                             to="/gallery-awards"
@@ -74,7 +72,7 @@ export default function Header() {
                                             Awards
                                         </NavLink>
                                     </li>
-                                    <li>
+                                    <li className="nav-item">
                                         <NavLink
                                             exact="true"
                                             to="/gallery-events"
@@ -83,7 +81,7 @@ export default function Header() {
                                             Events
                                         </NavLink>
                                     </li>
-                                    <li>
+                                    <li className="nav-item">
                                         <NavLink
                                             exact="true"
                                             to="/gallery-photoshoot"

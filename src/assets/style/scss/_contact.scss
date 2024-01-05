@@ -1,5 +1,6 @@
 $background-gradient-sec2: radial-gradient(48.79% 44.02% at 50.07% 50%, #9697b2 0%, #201d28 100%);
 $secondry-color: #c9ac8c;
+$white: #fff;
 
 .contact,
 .aboutPage {
@@ -7,59 +8,51 @@ $secondry-color: #c9ac8c;
   padding: 50px;
 
   h1 {
+    animation: bounceDown 2s ease-in-out;
+  }
+
+  h1,
+  h3 {
     text-align: center;
     font-weight: 400;
-    color: #fff;
-    max-width: fit-content;
+    color: $white;
     margin: 20px auto;
-    &::before {
-      display: none;
-    }
-    &::after {
-      display: none;
-    }
-  }
-  h3 {
-    color: #969696;
   }
   span {
     text-align: end;
     margin-top: 10px;
     font-size: 25px;
     margin-right: 35px;
-    font-family: "Licorice", cursive;
+    font-family: $font-2;
     color: $secondry-color;
     position: relative;
 
-    &::before {
+    &::before, &::after {
       content: "";
       position: absolute;
       width: 45px;
       height: 1px;
       background-color: $secondry-color;
-      bottom: 18px;
+      bottom: 50%;
       right: -60px;
     }
     &::after {
-      content: "";
-      position: absolute;
-      width: 45px;
-      height: 1px;
-      background-color: $secondry-color;
-      bottom: 18px;
       left: -60px;
     }
   }
   p {
     text-align: center;
     font-weight: 400;
-    color: #969696;
+    color: $white;
+    line-height: 0.9;
+    font-size: 18px;
+    line-height: 1.2;
   }
   .container-5 {
     max-width: 1000px;
     position: relative;
     z-index: 0;
-    margin: 5rem auto 10rem;
+    margin: 5rem auto;
     min-height: 37rem;
 
     .contact-form {
@@ -68,7 +61,7 @@ $secondry-color: #c9ac8c;
       background-color: transparent;
       border-radius: 10px;
       max-width: 1000px;
-      // box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 20px #3385d8, 0 0 30px #3385d8, 0 0 40px #3385d8, 0 0 50px #3385d8;
+      // box-shadow: 0 0 2px $white, 0 0 10px $white, 0 0 20px #3385d8, 0 0 30px #3385d8, 0 0 40px #3385d8, 0 0 50px #3385d8;
       -webkit-animation: blink 0.7s infinite alternate;
       animation: blink 0.7s infinite alternate;
 
@@ -95,6 +88,7 @@ $secondry-color: #c9ac8c;
           display: flex;
           flex-direction: column;
           align-items: start;
+          position: relative;
         }
       }
       canvas {
@@ -108,32 +102,60 @@ $secondry-color: #c9ac8c;
         outline: none;
         border: 0;
         font-size: 15px;
-        background-color: #fff9ef;
+        background-color: $white;
         border-radius: 5px;
         width: 25rem;
+        color: #2a2828;
         // box-shadow: 2px 2px 32px 3px rgba(32, 29, 40, 0.43);
       }
       label {
         text-transform: capitalize;
-        color: #fcfcfc;
+        color: $white;
         font-weight: 300;
       }
       input,
-      button {
+      textarea {
         border-radius: 5px;
+        border: 3px solid transparent;
+        transition: 0.5s ease;
+
+        &::placeholder {
+          color: #9fa3aa;
+        }
+
+        &:focus,
+        &:hover {
+          outline: none;
+          border-color: #201d28;
+          background-color: #fff;
+          box-shadow: 0 0 0 5px #201d281e;
+        }
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0;
       }
       .btn {
         background: $secondry-color;
         color: #000;
-        font-weight: 800;
-        padding: 0.8rem;
+        font-weight: 500;
+        padding: 0.5rem;
         font-family: inherit;
         border: none;
+        border-radius: 5px;
         margin-top: 1.3rem;
         width: 10rem;
         margin: 5px auto;
-        font-size: 0.9em;
+        font-size: 1.2rem;
+        transition: 0.5s ease;
         animation: pulse 2s infinite ease-out;
+
+        &:hover {
+          color: #ffffffba;
+        }
       }
     }
   }
@@ -148,120 +170,6 @@ $secondry-color: #c9ac8c;
   }
 }
 
-// /* declare our custom property so the browser can animate it */
-// @property --a {
-//   syntax: "<angle>";
-//   inherits: false;
-//   initial-value: 90deg;
-// }
-
-// .container-5 {
-//   /* give border & glow the same gradient & animation */
-//   &::before,
-//   &::after {
-//     content: "";
-//     display: block;
-//     position: absolute;
-//     inset: 1px;
-//     border-radius: 10px;
-
-//     --a: 0deg;
-
-//     background-image: conic-gradient(
-//       from var(--a) at 50% 50% in oklch longer ,
-//       oklch(0.67 0.1 72.66) 0%,
-//       oklch(0.73 0.07 72.31) 100%
-//     );
-
-//     animation: animatedBgAngle 5s linear;
-//     animation-iteration-count: infinite;
-//   }
-
-//   /* the gradient border */
-//   &::before {
-//     z-index: -1;
-//   }
-
-//   /* the "glow" */
-//   &::after {
-//     z-index: -2;
-//     filter: blur(1rem);
-//     opacity: 0.9;
-//   }
-// }
-
-// /*
-// vivid color gradient in oklab color space
-// for modern browsers
-// */
-// @supports not (
-//   background-image: conic-gradient(from 0deg at 50% 50% in oklch longer hue, oklch(70% 0.3 0) 0%, oklch(70% 0.3 0) 100%)
-// ) {
-//   .container-5 {
-//     &::before,
-//     &::after {
-//       /* fallback gradient for very old browsers */
-//       background-image: linear-gradient(
-//         var(--a),
-//         rgb(0, 174, 255) 0%,
-//         rgb(0, 119, 255) 10%,
-//         rgb(24, 95, 143) 20%,
-//         rgb(33, 104, 225) 30%,
-//         rgba(63, 218, 216, 1) 40%,
-//         rgba(47, 201, 226, 1) 50%,
-//         rgba(28, 127, 238, 1) 60%,
-//         rgba(33, 104, 225) 70%,
-//         rgba(24, 95, 143, 1) 80%,
-//         rgba(0, 119, 255, 1) 90%,
-//         rgba(0, 174, 255) 100%
-//       );
-
-//       /* fallback gradient for older browsers */
-//       background-image: conic-gradient(
-//         from var(--a) at 50% 50%,
-//         rgb(27, 46, 171) 0%,
-//         rgb(28, 96, 180) 10%,
-//         rgb(15, 80, 232) 20%,
-//         rgb(7, 176, 243) 30%,
-//         rgba(63, 218, 216, 1) 40%,
-//         rgba(47, 201, 226, 1) 50%,
-//         rgba(28, 127, 238, 1) 60%,
-//         rgb(21, 58, 242) 70%,
-//         rgba(15, 80, 232, 1) 80%,
-//         rgba(28, 96, 180) 90%,
-//         rgba(27, 46, 171) 100%
-//       );
-//     }
-//   }
-// }
-
-// /*
-// we can animate our custom property because we specified
-// its type at the top with the @property syntax
-// */
-// @keyframes animatedBgAngle {
-//   from {
-//     --a: 0deg;
-//   }
-//   to {
-//     --a: 360deg;
-//   }
-// }
-
-// @-webkit-keyframes blink {
-//   100% {
-//       box-shadow: 0 0 3px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #3385d8,
-//         0 0 70px #3385d8, 0 0 80px #3385d8;
-//   }
-// }
-
-// @keyframes blink {
-//   100% {
-//       box-shadow: 0 0 3px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #3385d8,
-//         0 0 70px #3385d8, 0 0 80px #3385d8;
-//   }
-// }
-
 @media screen and (max-width: 1199px) {
   .contact {
     .container-5 {
@@ -275,8 +183,22 @@ $secondry-color: #c9ac8c;
       max-width: 700px;
     }
   }
+  .contact,
+  .aboutPage {
+    h3,
+    p {
+      font-size: 15px;
+    }
+  }
 }
 @media screen and (max-width: 767px) {
+  .contact,
+  .aboutPage {
+    h3,
+    p {
+      font-size: 15px;
+    }
+  }
   .contact {
     h1 {
       padding-left: 10px;

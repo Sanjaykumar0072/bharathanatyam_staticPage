@@ -8,6 +8,7 @@ import Awards from './components/gallery/awards';
 import Events from "./components/gallery/events";
 import Photoshoot from "./components/gallery/photoshoot";
 
+
 function App() {
 
   return (

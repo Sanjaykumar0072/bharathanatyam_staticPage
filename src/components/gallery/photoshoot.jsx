@@ -1,58 +1,175 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../header';
 import ScrollToTop from '../sub-components/scroll-to-top';
 import Footer from '../footer';
 
-
-export default function Photoshoot() {
+// Loader component to show while images are loading
+const Loader = () => {
     return (
-        <>
-            <Header />
-            <ScrollToTop />
-            <div className="aboutPage galleryPages">
-                <span>Photoshoot</span>
-                <h2>A Visual Symphony in Photography</h2>
-                <div className="gallery-images">
-                    <img src="/public/images/photoshoot/ps-1.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-2.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-3.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-4.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-5.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-6.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-7.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-8.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-9.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-11.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-12.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-13.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-15.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-16.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-17.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-18.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-19.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-20.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-21.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-22.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-23.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-24.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-25.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-26.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-27.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-28.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-29.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-30.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-31.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-32.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-33.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-34.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-35.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-36.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-37.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-38.jpg" alt="" />
-                    <img src="/public/images/photoshoot/ps-39.jpg" alt="" />
+        <div className="loader">
+            <div></div>
+        </div>
+    );
+};
+
+class GalleryModal extends React.Component {
+    constructor() {
+        super();
+        this.handleKeyDown = this.handleKeyDown.bind(this);
+    }
+    componentDidMount() {
+        document.body.addEventListener('keydown', this.handleKeyDown);
+    }
+    componentWillUnMount() {
+        document.body.removeEventListener('keydown', this.handleKeyDown);
+    }
+    handleKeyDown(e) {
+        if (e.keyCode === 27)
+            this.props.closeModal();
+        if (e.keyCode === 37 && this.props.hasPrev)
+            this.props.findPrev();
+        if (e.keyCode === 39 && this.props.hasNext)
+            this.props.findNext();
+    }
+    render() {
+        const { closeModal, hasNext, hasPrev, findNext, findPrev, src, index, totalImages } = this.props;
+        if (!src) {
+            return null;
+        }
+        return (
+            <div>
+                <div className="modal-overlay" onClick={closeModal}></div>
+                <div isopen={!!src} className="modal">
+                    <div className='modal-body'>
+                        <a href="#" className='modal-close' onClick={closeModal} onKeyDown={this.handleKeyDown}>&times;</a>
+                        {hasPrev && <a href="#" className='modal-prev' onClick={findPrev} onKeyDown={this.handleKeyDown}>&lsaquo;</a>}
+                        {hasNext && <a href="#" className='modal-next' onClick={findNext} onKeyDown={this.handleKeyDown}>&rsaquo;</a>}
+                        <img src={src}/>
+                        <sup>{index+1}/{totalImages}</sup>
+                    </div>
                 </div>
             </div>
-            <Footer />
-        </>
-    );
+        )
+    }
 }
+class Photoshoot extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: true,
+            currentIndex: null,
+            images: [], // Store loaded images
+        };
+        this.closeModal = this.closeModal.bind(this);
+        this.findNext = this.findNext.bind(this);
+        this.findPrev = this.findPrev.bind(this);
+        this.renderImageContent = this.renderImageContent.bind(this);
+    }
+
+    componentDidMount() {
+        this.loadImages();
+    }
+
+    loadImages = async () => {
+        try {
+            const totalImages = 40;
+            const loadedImages = [];
+
+            const loadImage = (index) => {
+                const img = new Image();
+                img.src = `/images/photoshoot/PS-${index}.jpg`;
+                img.onload = () => {
+                    loadedImages.push(img);
+                    if (loadedImages.length === totalImages) {
+                        this.setState({ images: loadedImages, loading: false }); // Update loading state when all images are loaded
+                    } else {
+                        loadImage(index + 1);
+                    }
+                };
+            };
+
+            loadImage(1);
+
+            // Simulate delay before setting loaded images
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
+        } catch (error) {
+            console.error('Error loading images:', error);
+            this.setState({ loading: false });
+        }
+    }
+
+    renderImageContent(src, index) {
+        return (
+            <div onClick={(e) => this.openModal(e, index)} key={index}>
+                <img src={src.src} alt={`Image ${index}`} />
+            </div>
+        );
+    }
+
+    openModal(e, index) {
+        this.setState({ currentIndex: index });
+    }
+
+    closeModal(e) {
+        if (e !== undefined) {
+            e.preventDefault();
+        }
+        this.setState({ currentIndex: null });
+    }
+
+    findPrev(e) {
+        if (e !== undefined) {
+            e.preventDefault();
+        }
+        this.setState((prevState) => ({
+            currentIndex: prevState.currentIndex - 1,
+        }));
+    }
+
+    findNext(e) {
+        if (e !== undefined) {
+            e.preventDefault();
+        }
+        this.setState((prevState) => ({
+            currentIndex: prevState.currentIndex + 1,
+        }));
+    }
+
+    render() {
+        const { loading, images, currentIndex } = this.state;
+
+        return (
+            <>
+                <Header />
+                <ScrollToTop />
+                <div className="aboutPage galleryPages">
+                    <span>Photoshoot</span>
+                    <h1>A Visual Symphony in Photography</h1>
+                    {loading ? (
+                        <Loader />
+                    ) : (
+                        <div className="gallery-grid">
+                            {images.map((img, index) =>
+                                this.renderImageContent(img, index)
+                            )}
+                        </div>
+                    )}
+                    <GalleryModal
+                        closeModal={this.closeModal}
+                        findPrev={this.findPrev}
+                        findNext={this.findNext}
+                        hasPrev={currentIndex > 0}
+                        hasNext={currentIndex + 1 < images.length}
+                        src={images[this.state.currentIndex]?.src}
+                        index={this.state.currentIndex}
+                        totalImages={images.length}
+                    />
+                </div>
+                <Footer />
+            </>
+        );
+    }
+}
+
+export default Photoshoot;

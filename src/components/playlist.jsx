@@ -12,8 +12,7 @@ class Playlist extends Component {
         <ScrollToTop />
         <div className="playlistPage">
           <span>PLAYLIST</span>
-          <h1>Let’s Work Together!</h1>
-          <p>You may be a skillful, effective employer but if you don’t trust your personnel and the opposite.</p>
+          <h1>Explore on My Playlist</h1>
           <VideoPlaylist />
         </div>
         <Footer />

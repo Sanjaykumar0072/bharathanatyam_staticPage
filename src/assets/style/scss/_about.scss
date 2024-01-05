@@ -8,23 +8,28 @@
   }
   .container-5{
     min-height: 100% !important;
-    margin: 2rem auto !important;
     .about-content {
+      gap: 20px;
+      &:first-child {
+        margin-bottom: 5rem;
+      }
+
       .aboutImage {
-        background: url(/public/images/about-aside1.png) no-repeat center;
-        background-size: contain;
+        background: url(/images/photoshoot/PS-36.jpg) no-repeat center;
+        background-size: cover;
         border-radius: 0;
         min-height: 30rem;
         
       }
       .aboutImage1 {
-        background-image: url(/public/images/about-aside2.png);
+        background-image: url(/images/photoshoot/PS-39.jpg);
       }
       p {
         color: #fff;
         max-width: 500px;
         text-align: left;
         margin: 0 20px;
+        line-height: 1.5;
       }
     }
   }

@@ -13,7 +13,10 @@ class ContactUs extends Component {
             <>
                 <Header />
                 <ScrollToTop />
-                <ContactForm />
+                <div className="contactPage">
+                    <ContactForm />
+
+                </div>
                 <Footer />
             </>
         );
