@@ -32,7 +32,7 @@ export default function Footer() {
                         <a target="_blank" href="https://instagram.com/darshiinivs"><img  className='link-icons' src="/svg/instagram.svg" alt="" /></a>
                         <a target="_blank" href="https://www.youtube.com/channel/UChz5FJCG6PVLvSMB4yxEvxg"><img  className='link-icons' src="/svg/youtube.svg" alt="" /></a>
                         <a target="_blank" href="https://www.linkedin.com/in/darshiini-v-s-99662919b"><img  className='link-icons' src="/svg/linkedin.svg" alt="" /></a>
-                        <a target="_blank" href="https://api.whatsapp.com/send?text=Hello%20I%20am%20interested%20in%20joining%20your%20Bharatanatyam%20class?&phone=+918015280489"><img  className='link-icons' src="/svg/whatsapp.svg" alt="" /></a>
+                        <a target="_blank" href="https://api.whatsapp.com/send?text=?&phone=+918015280489"><img  className='link-icons' src="/svg/whatsapp.svg" alt="" /></a>
                     </div>
                 </div>
                 <div className="copyright">

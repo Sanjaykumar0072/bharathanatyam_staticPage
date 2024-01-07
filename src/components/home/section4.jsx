@@ -16,16 +16,6 @@ export default function Section2() {
                         <AnimationOnScroll animateOnce={true} animateIn='animate__fadeIn'>
                             <div className="video-box">
                                 <iframe
-                                    src='https://www.youtube.com/embed/InqeQQF-O-A'
-                                    className="main-video"
-                                    title='Kanikanum neeram kamala nethrante'
-                                    allowFullScreen="allowfullscreen"
-                                ></iframe>
-                            </div>
-                        </AnimationOnScroll>
-                        <AnimationOnScroll animateOnce={true} animateIn='animate__fadeIn'>
-                            <div className="video-box">
-                                <iframe
                                     src='https://www.youtube.com/embed/Ox-ZcopkVWo'
                                     className="main-video"
                                     title='2021 shivaratri'
@@ -36,9 +26,19 @@ export default function Section2() {
                         <AnimationOnScroll animateOnce={true} animateIn='animate__fadeIn'>
                             <div className="video-box">
                                 <iframe
-                                    src='https://www.youtube.com/embed/k9kAhpZVn0A'
+                                    src='https://www.youtube.com/embed/N3L10jo0mTg'
                                     className="main-video"
-                                    title='Vathikkalu velaripravu'
+                                    title='Natyanjali'
+                                    allowFullScreen="allowfullscreen"
+                                ></iframe>
+                            </div>
+                        </AnimationOnScroll>
+                        <AnimationOnScroll animateOnce={true} animateIn='animate__fadeIn'>
+                            <div className="video-box">
+                                <iframe
+                                    src='https://www.youtube.com/embed/-5OgXQGrJsk'
+                                    className="main-video"
+                                    title='Natiyam'
                                     allowFullScreen="allowfullscreen"
                                 ></iframe>
                             </div>

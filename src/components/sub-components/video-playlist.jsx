@@ -5,8 +5,8 @@ class VideoPlaylist extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mainVideoUrl: 'https://www.youtube.com/embed/b2aict7mmFk',
-      mainVideoTitle: 'Kripaya palaya',
+      mainVideoUrl: 'https://www.youtube.com/embed/N3L10jo0mTg',
+      mainVideoTitle: 'Natyanjali',
       activeItem: 0
     };
   }
